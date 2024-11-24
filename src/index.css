@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+  overflow-x: hidden;
+  background-color: rgb(5.25,7.2,4);
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 6px;
+  }  
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #28fb75;
+    border-radius: 15px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1ecd5e;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+}

@@ -1,0 +1,65 @@
+footer {
+    background-color: rgb(29, 29, 29);
+    margin-top: 60px; 
+    padding: 40px 8%; 
+    overflow: hidden; 
+}
+
+*{
+    font-family: Montserrat;
+    color: white;
+}
+
+.content {
+    margin: 30px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(218px, 1fr));
+    gap: 30px; 
+}
+.content h2{
+    font-weight: 200;
+    color: #28FB75;
+    margin-bottom: 6px;
+}
+
+.part1 a, .part2 p{
+    text-decoration: none;
+    color: white;
+}
+
+.part2 p{
+    font-weight: 470;
+    font-size: 0.95em;
+    letter-spacing: 0.3px;
+}
+
+.links{
+    margin-top: 20px;
+    
+}
+
+.part2{
+    width: 220px;
+}
+
+.part3 {
+    width: 100%;
+    max-width: 346px;
+    height: auto; 
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+.line {
+    height: 1px; 
+    margin: 20px 0; 
+    background-color: rgba(40, 251, 117, 0.8);
+}
+
+.copyright h2 {
+    font-size: 0.9em;
+    font-weight: 350;
+    padding: 10px 0; 
+    text-align: center;
+}

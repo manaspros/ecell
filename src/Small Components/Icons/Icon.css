@@ -1,0 +1,20 @@
+.icon1{
+  height: 20px;
+  transition: transform 0.18s ease-in-out 0s;
+  margin-right: 4px;
+}
+
+.icon2{
+  height: 20px;
+  transition: transform 0.18s ease-in-out 0s;
+}
+
+.icon1:hover{
+  transform:scale(1.2);
+  cursor: pointer;
+}
+
+.icon2:hover{
+  transform:scale(1.2);
+  cursor: pointer;
+}
