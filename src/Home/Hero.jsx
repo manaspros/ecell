@@ -39,10 +39,10 @@ function Hero() {
         
         <img src="/bgg.png" alt="" className="theme" />
 
-        <button onClick={() => scrollToSection('about-section')} className="explore">
-          {/* <Button url="/About"/> */}
+        {/* <button onClick={() => scrollToSection('about-section')} className="explore">
+          <Button url="/About"/>
           <img src="/explore.png" alt="" />
-        </button>
+        </button> */}
       </div>
       {/* <About ref={sectionRef} /> */}
     </div>
