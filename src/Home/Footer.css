@@ -35,7 +35,9 @@ footer {
 
 .links{
     margin-top: 20px;
-    
+    display: flex;
+    gap: 20px; /* Adjust space between the icons */
+    align-items: center; /* Align items vertically if needed */
 }
 
 .part2{
