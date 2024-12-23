@@ -61,19 +61,19 @@ const Team = forwardRef((props, ref) => {
         <Member
           source="/aggarwal.jpg"
           // source="https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          name="Pranjal Aggarwal" position="Developer"
+          name="Pranjal Agrawal" position="Developer"
           insta="https://www.instagram.com/pranjal.agr_/" LinkedIn="https://www.linkedin.com/in/pranjal-agrawal-97502a283/"
         />
         <Member
           source="/shrey.jpg"
           // source="https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          name="Shrey Omar" position="Developer"
+          name="Shrey Omer" position="Developer"
           insta="" LinkedIn=""
         />
         <Member
           source="/srijan.jpg"
           // source="https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          name="Srijan" position="Developer"
+          name="Srijan Sinha" position="Developer"
           insta="" LinkedIn=""
         />
       </div>
