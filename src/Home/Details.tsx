@@ -35,27 +35,41 @@ export default function BentoGridDemo() {
 
 const items = [
   {
-    title: "The Dawn of Innovation",
-    description: "Explore the birth of groundbreaking ideas and inventions.",
-    header: null, 
+    title: "Empowering Financial Minds",
+    description: "Learn from the finest financial leaders.",
+    header: null,
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
-    image: "/Gallery/15.JPG", 
+    image: "/Gallery/15.JPG",
   },
   {
-    title: "The Digital Revolution",
-    description: "Dive into the transformative power of technology.",
+    title: "Leaders in Finance",
+    description: "Expert insights for your financial growth.",
     header: null,
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
     image: "/Gallery/16.JPG",
   },
   {
-    title: "The Art of Design",
-    description: "Discover the beauty of thoughtful and functional design.",
+    title: "Wealth Wisdom Talks",
+    description: "Guiding you toward financial freedom.",
     header: null,
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
     image: "/Gallery/17.JPG",
   },
   {
+    title: "Inspire. Learn. Grow.",
+    description: "Empowering tomorrow's financial leaders.",
+    header: null,
+    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+    image: "/Gallery/21.JPG",
+  },
+  {
+    title: "Money Matters Here",
+    description: "Knowledge that transforms wealth.",
+    header: null,
+    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
+    image: "/Gallery/22.jpg",
+  },
+  {
     title: "The Power of Communication",
     description:
       "Understand the impact of effective communication in our lives.",
@@ -70,19 +84,4 @@ const items = [
     icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
     image: "/Gallery/19.JPG",
   },
-  {
-    title: "The Power of Communication",
-    description:
-      "Understand the impact of effective communication in our lives.",
-    header: null,
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
-    image: "/Gallery/18.JPG",
-  },
-  {
-    title: "The Pursuit of Knowledge",
-    description: "Join the quest for understanding and enlightenment.",
-    header: null,
-    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
-    image: "/Gallery/19.JPG",
-  }
 ];
