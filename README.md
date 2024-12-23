@@ -50,8 +50,8 @@ A modern website designed for the MoneyMatter Club at IIIT Naya Raipur, built wi
 ## 📈 GitHub Stats  
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=manaschoudhary&show_icons=true&theme=radical" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=manaschoudhary&layout=compact&theme=radical" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api?username=manaspros&show_icons=true&theme=radical" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=manaspros&layout=compact&theme=radical" alt="Top Languages" />
 </p>  
 
 ---
