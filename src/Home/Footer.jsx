@@ -1,6 +1,6 @@
-import Welcome from '../Small components/Welcome'
-import Insta from '../Small components/Icons/insta'
-import LinkedIn from '../Small components/Icons/LinkedIn'
+import Welcome from '../Small_Components/Welcome'
+import Insta from '../Small_Components/Icons/insta'
+import LinkedIn from '../Small_Components/Icons/LinkedIn'
 import './Footer.css'
 import React, { forwardRef } from "react";
 
@@ -34,7 +34,7 @@ const Footer = forwardRef((props, ref) => {
 
                 <iframe className='part3' src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4688.930373299446!2d81.76451912210946!3d21.12825872924271!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a28c434ac2ae871%3A0x4e3568497a7e1d7e!2sInternational%20Institute%20of%20Information%20Technology%2C%20Naya%20Raipur!5e0!3m2!1sen!2sin!4v1726359787706!5m2!1sen!2sin" width="600" height="450" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
-        
+
             <div className="line"></div>
 
             <div className="copyright">

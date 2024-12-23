@@ -6,7 +6,7 @@ import Events from './Events/Events.jsx';
 import Gallery from './Gallery/Gallery.jsx';
 import About from './About/About.jsx';
 import Footer from './Home/Footer.jsx';
-import Loading from './Small Components/Loading.jsx';
+import Loading from './Small_Components/Loading.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 function App() {
