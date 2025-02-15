@@ -46,11 +46,16 @@ export const DesktopSidebar = ({ className, children }) => {
   const { open, setOpen } = useSidebar();
   return (
     <motion.div
-      className={`hidden md:flex flex-col bg-gray-200 px-4 py-4 flex-shrink-0 rounded-r-lg ${className}`} // Added rounded-r-lg for curve
-      animate={{ width: open ? "18rem" : "4rem" }} // 18rem ~ 288px, 4rem ~ 64px
+      className={`hidden md:flex flex-col bg-gray-200 px-4 py-4
+        flex-shrink-0 ${className} z-50 h-screen`} // Added z-50 and full height
+      animate={{ width: open ? "18rem" : "4rem" }} // Fixed width when open
       transition={{ duration: 0.3, ease: "easeInOut" }}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
+      style={{
+        borderTopRightRadius: open ? "0" : "0.5rem",
+        borderBottomRightRadius: open ? "0" : "0.5rem",
+      }}
     >
       {children}
     </motion.div>

@@ -14,7 +14,7 @@ export function SidebarDemo() {
   const links = [
     {
       label: "Home ",
-      href: "#",
+      href: "http://localhost:5173/",
       icon: <IconUserBolt className="icon" />,
     },
     {
