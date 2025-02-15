@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import axios from "axios"; // Import axios for API calls
 
 // Simple utility to conditionally join class names
 function cn(...classes) {
@@ -14,6 +15,7 @@ export default function PlaceholdersAndVanishInput({
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
   const [value, setValue] = useState("");
   const [animating, setAnimating] = useState(false);
+  const [error, setError] = useState("");
 
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -172,10 +174,25 @@ export default function PlaceholdersAndVanishInput({
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    vanishAndSubmit();
-    onSubmit && onSubmit(e);
+    setError(""); // Clear previous error
+    try {
+      const response = await axios.post(
+        "https://sf-mvji.onrender.com/verifyContentUrl",
+        {
+          url: value,
+        }
+      );
+      if (response.data.success) {
+        vanishAndSubmit();
+        onSubmit && onSubmit(e, value); // Pass the input value to onSubmit
+      } else {
+        setError(response.data.msg);
+      }
+    } catch (error) {
+      setError("An error occurred. Please try again.");
+    }
   };
 
   return (
@@ -253,6 +270,7 @@ export default function PlaceholdersAndVanishInput({
           )}
         </AnimatePresence>
       </div>
+      {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
     </form>
   );
 }

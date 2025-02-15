@@ -1,11 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from 'react-router-dom';
+import axios from 'axios';
 import { IconStar } from "@tabler/icons-react";
 import { SidebarDemo } from "./sidebar";
 import { PieChart } from "@mui/x-charts/PieChart";
 import youtubeLogo from "../assets/youtube_logo_icon.png";
 import StarComments from "../components/PillStarComments";
+import Loading from "../components/Loading";
+export const calculateAverage = (data) => {
+    // If data is null or empty, return 0
+    if (!data || Object.keys(data).length === 0) return 0;
+
+    let sum = 0;
+    let count = 0;
+
+    // Loop through each key-value pair
+    Object.entries(data).forEach(([key, value]) => {
+        // Convert value to number if it's a string
+        const numValue = Number(value);
+        // Only add if it's a valid number
+        if (!isNaN(numValue)) {
+            sum += key * numValue;
+            count += numValue;
+        }
+    });
+
+    // Return average rounded to 2 decimal places
+    return count > 0 ? Number((sum / count).toFixed(2)) : 0;
+};
 
 function Analysis() {
+    const [searchParams] = useSearchParams();
+    const [videoUrl] = useState(searchParams.get('url'));
+    const [loading, setLoading] = useState(true);
+    const [analysisData, setAnalysisData] = useState(null);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchAnalysis = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.post('https://sf-mvji.onrender.com/getContentAnalysis', {
+                    url: videoUrl
+                });
+                setAnalysisData(response.data);
+            } catch (err) {
+                setError('Failed to fetch analysis');
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (videoUrl) {
+            fetchAnalysis();
+        }
+    }, [videoUrl]);
+
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return <div className="text-red-500 text-center mt-8">{error}</div>;
+    }
+
     return (
         <div className="flex h-screen">
             <div className="w-64">
@@ -19,25 +78,34 @@ function Analysis() {
                             alt="YouTube Logo"
                             className="w-10 h-10"
                         />
-                        <h1 className="text-4xl font-bold text-left">
-                            YouTube Video Analysis
-                        </h1>
+                        <div>
+                            <h1 className="text-4xl font-bold text-left">
+                                YouTube Video Analysis
+                            </h1>
+                            <p className="text-gray-500 mt-2 text-sm truncate">
+                                {videoUrl}
+                            </p>
+                        </div>
                     </div>
                     <div className="flex flex-col md:flex-row items-center justify-center gap-16 pt-16">
                         <div className="flex items-center gap-5">
                             <IconStar className="w-24 h-24 text-yellow-500" />
-                            <span className="text-5xl font-bold">4.5</span>
+                            <span className="text-5xl font-bold">
+                                {calculateAverage(analysisData?.stats) || "N/A"}
+                            </span>
                             <span className="text-xl pt-6">/5</span>
                         </div>
                         <div>
                             <PieChart
                                 series={[
                                     {
-                                        data: [
-                                            { id: 0, value: 10, label: "Series A" },
-                                            { id: 1, value: 15, label: "Series B" },
-                                            { id: 2, value: 20, label: "Series C" },
-                                        ],
+                                        data: Object.keys(analysisData?.stats).map(k => {
+                                            return {
+                                                id: k,
+                                                value: analysisData?.stats[k],
+                                                label: ["very negative", "negative", "neutral", "positive", "very positive"][k - 1]
+                                            }
+                                        }) || [],
                                     },
                                 ]}
                                 width={400}
@@ -46,9 +114,9 @@ function Analysis() {
                         </div>
                     </div>
                     <h1 className="text-4xl font-bold text-left pt-16">
-                        Comment
+                        Comments
                     </h1>
-                    <StarComments />
+                    <StarComments comments={analysisData?.comments} />
                 </div>
             </div>
         </div>
