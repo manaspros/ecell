@@ -54,58 +54,79 @@ const GeminiChat = ({ videoUrl }) => {
     return (
         <>
             {/* Fixed chat icon */}
-            <div className="fixed bottom-4 right-4 z-50">
+            <div className="fixed bottom-6 right-6 z-50">
                 <button
                     onClick={() => setOpen(!open)}
-                    className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg"
+                    className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-lg transition-transform hover:scale-110"
                 >
-                    <IconMessageCircle className="w-6 h-6" />
+                    <IconMessageCircle className="w-8 h-8" />
                 </button>
             </div>
             {/* Chat window */}
             {open && (
-                <div className="fixed bottom-20 right-4 z-50 w-80 p-4 bg-white border border-gray-300 rounded-lg shadow-lg">
-                    <div className="flex justify-between items-center mb-2">
-                        <h3 className="text-lg font-bold">Gemini Chat</h3>
-                        <button onClick={() => setOpen(false)} className="text-gray-600">&times;</button>
+                <div className="fixed bottom-24 right-6 z-50 w-96 bg-white border border-gray-200 rounded-2xl shadow-xl">
+                    <div className="flex justify-between items-center px-6 py-4 border-b">
+                        <h3 className="text-xl font-bold text-gray-800">SentimentFinder.ai</h3>
+                        <button
+                            onClick={() => setOpen(false)}
+                            className="text-gray-500 hover:text-gray-700 text-2xl"
+                        >
+                            &times;
+                        </button>
                     </div>
-                    <div className="h-40 overflow-y-auto border rounded p-2 mb-2 space-y-2">
+                    <div className="h-[60vh] overflow-y-auto p-6 space-y-4">
                         {chatMessages.length > 0 ? (
                             chatMessages.map((msg, index) => (
-                                <div key={index} className={`text-sm ${msg.role === "user" ? "text-blue-600" : "text-gray-800"}`}>
-                                    <span className="font-semibold">{msg.role === "user" ? "You" : "Model"}: </span>
-                                    {msg.role === "model" ? (
-                                        <span dangerouslySetInnerHTML={{ __html: convertMarkdown(msg.text) }} />
-                                    ) : (
-                                        msg.text
-                                    )}
+                                <div
+                                    key={index}
+                                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                                >
+                                    <div
+                                        className={`max-w-[80%] rounded-2xl px-4 py-2 ${msg.role === "user"
+                                            ? "bg-blue-500 text-white"
+                                            : "bg-gray-100 text-gray-800"
+                                            }`}
+                                    >
+                                        {msg.role === "model" ? (
+                                            <span dangerouslySetInnerHTML={{ __html: convertMarkdown(msg.text) }} />
+                                        ) : (
+                                            msg.text
+                                        )}
+                                    </div>
                                 </div>
                             ))
                         ) : (
-                            <p className="text-gray-500">Ask your question...</p>
+                            <p className="text-gray-500 text-center">Ask your question about this video...</p>
                         )}
                         {isTyping && (
-                            <div className="text-sm text-gray-800">
-                                <span className="font-semibold">Model: </span>
-                                <span>Typing...</span>
+                            <div className="flex justify-start">
+                                <div className="bg-gray-100 rounded-2xl px-4 py-2">
+                                    <div className="flex space-x-2">
+                                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100"></div>
+                                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200"></div>
+                                    </div>
+                                </div>
                             </div>
                         )}
                     </div>
-                    <div className="flex gap-2">
-                        <input
-                            type="text"
-                            value={inputValue}
-                            onChange={(e) => setInputValue(e.target.value)}
-                            onKeyDown={handleKeyDown}
-                            placeholder="Type your question..."
-                            className="w-full border rounded p-2 focus:outline-none"
-                        />
-                        <button
-                            onClick={sendQuestion}
-                            className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded"
-                        >
-                            Send
-                        </button>
+                    <div className="p-4 border-t">
+                        <div className="flex gap-2">
+                            <input
+                                type="text"
+                                value={inputValue}
+                                onChange={(e) => setInputValue(e.target.value)}
+                                onKeyDown={handleKeyDown}
+                                placeholder="Type your question..."
+                                className="flex-1 p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                            <button
+                                onClick={sendQuestion}
+                                className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl transition-colors"
+                            >
+                                Send
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}

@@ -107,8 +107,7 @@ export function SidebarDemo() {
   };
 
   return (
-    <div className="fixed top-0 left-0 h-screen w-64 bg-white z-40 overflow-y-auto">
-      {/* Sidebar now covers entire viewport height and remains fixed */}
+    <div className="fixed top-0 left-0 h-screen w-64 bg-white z-40">
       <Sidebar>
         <SidebarBody>
           <SidebarContent />
