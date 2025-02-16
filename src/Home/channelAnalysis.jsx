@@ -50,10 +50,20 @@ function ChannelAnalysis() {
 
     if (loading)
         return (
-            <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-                <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
-                    <p className="mt-4 text-lg text-gray-600 font-medium">Analyzing channel...</p>
+            <div className="min-h-screen flex items-center justify-center bg-gray-100">
+                <div className="w-full max-w-lg p-4">
+                    <div className="animate-pulse flex space-x-4">
+                        <div className="rounded-full bg-gray-300 h-16 w-16"></div>
+                        <div className="flex-1 space-y-4 py-1">
+                            <div className="h-4 bg-gray-300 rounded w-3/4"></div>
+                            <div className="h-4 bg-gray-300 rounded w-1/2"></div>
+                        </div>
+                    </div>
+                    <div className="mt-8 space-y-4">
+                        <div className="h-4 bg-gray-300 rounded"></div>
+                        <div className="h-4 bg-gray-300 rounded w-5/6"></div>
+                        <div className="h-4 bg-gray-300 rounded w-4/6"></div>
+                    </div>
                 </div>
             </div>
         );
