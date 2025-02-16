@@ -43,7 +43,10 @@ function PillStarComments({ comments = [] }) {
                             filteredComments.map((comment, index) => (
                                 <div key={index} className="border rounded-md p-3 mb-2 shadow-sm">
                                     <p className="text-sm font-bold mb-1">{comment.author}</p>
-                                    <p className="text-gray-700">{comment.text}</p>
+                                    <p
+                                        className="text-gray-700"
+                                        dangerouslySetInnerHTML={{ __html: comment.text }}
+                                    />
                                 </div>
                             ))
                         ) : (

@@ -29,7 +29,7 @@ export default function PlaceholdersAndVanishInputDemo() {
   };
 
   return (
-    <div className="w-screen h-screen bg-gradient-to-b from-white to-gray-50 flex flex-col justify-center items-center px-4">
+    <div className="w-screen h-screen bg-white flex flex-col justify-center items-center px-4">
       <div className="text-center mb-12">
         <h1 className="text-5xl font-semibold text-gray-800 flex flex-wrap justify-center items-center gap-2">
           Let's analyze <FlipWords words={words} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   IconArrowRight,
@@ -6,59 +6,114 @@ import {
   IconSettings,
   IconBrandYoutube,
   IconUserBolt,
+  IconHome,
+  IconPlus,
 } from "@tabler/icons-react";
-// Import UI sidebar components from the shared folder
 import { Sidebar, SidebarBody, SidebarLink, useSidebar } from "../ui/sidebar";
 
+// Helper to extract label: use the part after "@" or fallback to the URL itself
+const getLabelFromUrl = (url: string) => {
+  const atIndex = url.indexOf("@");
+  if (atIndex !== -1) {
+    let label = url.slice(atIndex + 1);
+    const slashIndex = label.indexOf("/");
+    if (slashIndex !== -1) label = label.slice(0, slashIndex);
+    return "@" + label;
+  }
+  return url;
+};
+
 export function SidebarDemo() {
-  const links = [
+  // State for saved links from localStorage
+  const [savedLinks, setSavedLinks] = useState<string[]>([]);
+
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem("savedUrls") || "[]");
+    setSavedLinks(stored);
+  }, []);
+
+  // New handler to add a URL to local storage and update state
+  const handleAddNew = () => {
+    const newUrl = window.prompt("Enter new URL:");
+    if (newUrl) {
+      const updatedLinks = [...savedLinks, newUrl];
+      localStorage.setItem("savedUrls", JSON.stringify(updatedLinks));
+      setSavedLinks(updatedLinks);
+      alert("URL added successfully!");
+    }
+  };
+
+  // Only include Home in baseLinks now
+  const baseLinks = [
     {
-      label: "Home ",
+      label: "Home",
       href: "http://localhost:5173/",
-      icon: <IconUserBolt className="icon" />,
-    },
-    {
-      label: "Profile",
-      href: "#",
-      icon: <IconSettings className="icon" />,
-    },
-    {
-      label: "Youtube",
-      href: "#",
-      icon: <IconBrandYoutube className="icon" />,
-    },
-    {
-      label: "Add New",
-      href: "#",
-      icon: <IconArrowRight className="icon" />,
+      icon: <IconHome className="icon" />,
     },
   ];
 
-  // Inner component to use the sidebar context
   const SidebarContent = () => {
     const { open } = useSidebar();
     return (
-      <>
-        <div className="sidebar-content">
-          {open ? <Logo /> : <LogoIcon />}
-          <div className="menu">
-            {links.map((link, idx) => (
-              <SidebarLink key={idx} link={link} className={undefined} />
-            ))}
+      <div className="sidebar-content">
+        {open ? <Logo /> : <LogoIcon />}
+        <div className="menu">
+          {baseLinks.map((link, idx) => (
+            <SidebarLink key={idx} link={link} className={undefined} />
+          ))}
+          {/* Render saved links replacing the YouTube item */}
+          {savedLinks.map((url, idx) => {
+            const targetHref = `/channelAnalysis?url=${encodeURIComponent(
+              url
+            )}`;
+            return (
+              <div
+                key={`saved-${idx}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = targetHref;
+                }}
+              >
+                <SidebarLink
+                  link={{
+                    label: getLabelFromUrl(url),
+                    href: targetHref,
+                    icon: <IconBrandYoutube className="icon" />,
+                  }}
+                  className={undefined}
+                />
+              </div>
+            );
+          })}
+          {/* Single "Add New" button at the bottom */}
+          <div
+            onClick={(e) => {
+              e.preventDefault();
+              handleAddNew();
+            }}
+          >
+            <SidebarLink
+              link={{
+                label: "Add New",
+                icon: <IconPlus className="icon" />,
+                href: undefined,
+              }}
+              className={undefined}
+            />
           </div>
         </div>
-      </>
+      </div>
     );
   };
 
   return (
-    <div className={`sidebar-container`}>
+    <div className="fixed top-0 left-0 h-screen w-64 bg-white z-40 overflow-y-auto">
+      {/* Sidebar now covers entire viewport height and remains fixed */}
       <Sidebar>
         <SidebarBody>
           <SidebarContent />
         </SidebarBody>
       </Sidebar>
-      <Dashboard /> {/* Dashboard now fills the page */}
     </div>
   );
 }
@@ -76,7 +131,6 @@ const LogoIcon = () => <div className="logo-icon" />;
 const Dashboard = () => {
   return (
     <div className="w-screen h-screen">
-      {" "}
       {/* Changed to full viewport */}
       <div className="dashboard-content">
         {[...new Array(4)].map((_, i) => (

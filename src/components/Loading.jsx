@@ -2,10 +2,10 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div className="flex items-center justify-center w-full h-full">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
             <div className="flex flex-col items-center">
-                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500 mb-4"></div>
-                <p className="text-gray-500">Analyzing comments...</p>
+                <div className="w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+                <p className="mt-4 text-lg text-gray-600 font-medium">Analyzing channel...</p>
             </div>
         </div>
     );

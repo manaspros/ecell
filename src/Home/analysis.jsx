@@ -7,6 +7,8 @@ import { PieChart } from "@mui/x-charts/PieChart";
 import youtubeLogo from "../assets/youtube_logo_icon.png";
 import StarComments from "../components/PillStarComments";
 import Loading from "../components/Loading";
+import GeminiChat from "../components/GeminiChat";
+
 export const calculateAverage = (data) => {
     // If data is null or empty, return 0
     if (!data || Object.keys(data).length === 0) return 0;
@@ -28,6 +30,12 @@ export const calculateAverage = (data) => {
     // Return average rounded to 2 decimal places
     return count > 0 ? Number((sum / count).toFixed(2)) : 0;
 };
+
+// Add convertMarkdown helper function
+const convertMarkdown = (text) =>
+    text
+        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+        .replace(/\n/g, "<br/>");
 
 function Analysis() {
     const [searchParams] = useSearchParams();
@@ -91,7 +99,7 @@ function Analysis() {
                         <div className="flex items-center gap-5">
                             <IconStar className="w-24 h-24 text-yellow-500" />
                             <span className="text-5xl font-bold">
-                                {calculateAverage(analysisData?.stats) || "N/A"}
+                                {calculateAverage(analysisData?.comments.stats) || "N/A"}
                             </span>
                             <span className="text-xl pt-6">/5</span>
                         </div>
@@ -99,10 +107,10 @@ function Analysis() {
                             <PieChart
                                 series={[
                                     {
-                                        data: Object.keys(analysisData?.stats).map(k => {
+                                        data: Object.keys(analysisData?.comments.stats).map(k => {
                                             return {
                                                 id: k,
-                                                value: analysisData?.stats[k],
+                                                value: analysisData?.comments.stats[k],
                                                 label: ["very negative", "negative", "neutral", "positive", "very positive"][k - 1]
                                             }
                                         }) || [],
@@ -113,12 +121,38 @@ function Analysis() {
                             />
                         </div>
                     </div>
+                    <div className="mt-10">
+                        <div>
+                            <h2 className="text-4xl font-bold">
+                                Summary
+                            </h2>
+                            <p
+                                className="ml-4 mt-2"
+                                dangerouslySetInnerHTML={{
+                                    __html: convertMarkdown(analysisData?.summary || "No summary available.")
+                                }}
+                            />
+                        </div>
+                        <div className="mt-8">
+                            <h2 className="text-4xl font-bold">
+                                What people want
+                            </h2>
+                            <p
+                                className="ml-4 mt-2"
+                                dangerouslySetInnerHTML={{
+                                    __html: convertMarkdown(analysisData?.suggestions || "No suggestions available.")
+                                }}
+                            />
+                        </div>
+                    </div>
                     <h1 className="text-4xl font-bold text-left pt-16">
                         Comments
                     </h1>
-                    <StarComments comments={analysisData?.comments} />
+                    <StarComments comments={analysisData?.comments.comments} />
                 </div>
             </div>
+            {/* Pass videoUrl to GeminiChat */}
+            <GeminiChat videoUrl={videoUrl} />
         </div>
     );
 }
