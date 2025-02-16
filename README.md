@@ -1,58 +1,70 @@
-## 👋 About Me  
+# SentimentFinder
 
-Hi there! I'm **Manas Choudhary**, a passionate web developer and coding enthusiast currently pursuing B.Tech in **Data Science and Artificial Intelligence** at IIIT Naya Raipur.  
+## 📌 About the Project
+SentimentFinder is a web-based sentiment analysis tool designed to analyze YouTube videos and channels. It provides sentiment-based insights into user comments, offering a visual representation of audience reactions and feedback.
 
-🌟 **What I Do:**  
-- Build modern, scalable web applications.  
-- Explore cutting-edge technologies like **ReactJS**, **Next.js**, and **Tailwind CSS**.  
-- Contribute to projects like the [MoneyMatter Club Website](https://money-matters-main.vercel.app/).  
+## 🚀 Features
+- Analyze sentiment from YouTube video comments.
+- Generate pie charts to display sentiment distribution.
+- View summarized insights from user comments.
+- Show what people want to see as per comment analysis.
+- AI-powered chatbot (Gemini) for interactive analysis.
+- Responsive and modern UI built with **ReactJS**, **Tailwind CSS**, and **Framer Motion**.
 
-🚀 **Why I Code:**  
-I believe in crafting meaningful digital experiences that solve real-world problems while continuously growing as a developer.  
+## 🛠️ Tech Stack
+- **Frontend**: ReactJS, Vite, Tailwind CSS, Framer Motion, Material-UI
+- **Backend**: Node.js, Express.js (for API requests)
+- **Libraries Used**: Axios, React Router, Chart.js, Tabler Icons
+
+## 📂 Folder Structure
+```
+manaspros-ecell/
+│── src/
+│   ├── Home/ (Main pages like analysis, sidebar, homepage)
+│   ├── components/ (Chatbot, Loading animations, Comments UI)
+│   ├── lib/ (Utility functions)
+│   ├── styles/ (Global CSS and Tailwind Config)
+│   ├── ui/ (Custom UI components)
+│   ├── index.jsx
+│   ├── App.jsx
+│── public/
+│── package.json
+│── vite.config.js
+│── tailwind.config.js
+│── README.md
+```
+
+## 🏗️ Installation & Setup
+1. **Clone the Repository**
+   ```sh
+   git clone https://github.com/your-username/sentimentfinder.git
+   cd sentimentfinder
+   ```
+2. **Install Dependencies**
+   ```sh
+   npm install
+   ```
+3. **Run the Development Server**
+   ```sh
+   npm run dev
+   ```
+   The app will be available at `http://localhost:5173/`.
+
+## 📌 Usage
+1. Enter a YouTube video or channel URL.
+2. View sentiment analysis results with graphical representation.
+3. Interact with Gemini AI for insights on audience perception.
+
+## 🔗 Live Demo
+[Live Deployment](https://your-live-link.vercel.app/)
+
+## 🤝 Contributors
+- **Manas Choudhary** – [LinkedIn](https://www.linkedin.com/in/manaschoudhary/)
+- Other contributors...
+
+## 📜 License
+This project is licensed under the MIT License.
 
 ---
+✨ _Feel free to fork, contribute, or raise issues for improvements!_ 🚀
 
-## 🛠️ Technologies & Tools  
-
-### **Frontend**  
-![React](https://img.shields.io/badge/-ReactJS-61DAFB?logo=react&logoColor=white&style=flat)  
-![Next.js](https://img.shields.io/badge/-Next.js-black?logo=next.js&logoColor=white&style=flat)  
-![Tailwind CSS](https://img.shields.io/badge/-TailwindCSS-38B2AC?logo=tailwind-css&logoColor=white&style=flat)  
-![aceternity](https://img.shields.io/badge/aceternity-Design-blue)
-
-
-### **Other Tools**  
-![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white&style=flat)  
-![VS Code](https://img.shields.io/badge/-VS%20Code-007ACC?logo=visual-studio-code&logoColor=white&style=flat)  
-![Vercel](https://img.shields.io/badge/-Vercel-000000?logo=vercel&logoColor=white&style=flat)  
-
----
-
-## 🌟 Featured Project  
-
-### [MoneyMatter Club Website](https://money-matters-main.vercel.app/)  
-A modern website designed for the MoneyMatter Club at IIIT Naya Raipur, built with:  
-- **Next.js** for fast, dynamic pages.  
-- **Tailwind CSS** for responsive and clean UI design.  
-- Hosted on **Vercel** for seamless performance and scalability.  
-
-👉 [View the Live Site](https://money-matters-main.vercel.app/)  
-
----
-
-## 📈 GitHub Stats  
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=manaspros&show_icons=true&theme=radical" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=manaspros&layout=compact&theme=radical" alt="Top Languages" />
-</p>  
-
----
-
-## ✉️ Let's Connect!  
-
-- 🌐 [My Blog](https://manas-technology-blogs.vercel.app/)  
-- 💼 [LinkedIn](https://www.linkedin.com/in/manaschoudhary/)  
-- 📧 [Email](mailto:manasnandchoudhary@gmail.com)  
-
----
