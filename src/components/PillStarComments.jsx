@@ -18,7 +18,7 @@ function PillStarComments({ comments = [] }) {
         : [];
 
     return (
-        <div className="mt-10">
+        <div className="mt-10 pb-32">
             <div className="flex gap-3">
                 {Object.entries(ratingLabels).map(([rating, label]) => (
                     <button
