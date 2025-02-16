@@ -7,6 +7,7 @@ SentimentFinder is a web-based sentiment analysis tool designed to analyze YouTu
 - Analyze sentiment from YouTube video comments.
 - Generate pie charts to display sentiment distribution.
 - View summarized insights from user comments.
+- Show what people want to see as per comment analysis.
 - AI-powered chatbot (Gemini) for interactive analysis.
 - Responsive and modern UI built with **ReactJS**, **Tailwind CSS**, and **Framer Motion**.
 
