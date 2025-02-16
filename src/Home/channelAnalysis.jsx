@@ -111,7 +111,7 @@ function ChannelAnalysis() {
                         </div>
                     </div>
                     {/* Rating and Pie Chart Section */}
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-16 pt-16">
+                    {/* <div className="flex flex-col md:flex-row items-center justify-center gap-16 pt-16">
                         <div className="flex items-center gap-5">
                             <IconStar className="w-24 h-24 text-yellow-500" />
                             <span className="text-4xl font-bold">{averageRating || "N/A"}</span>
@@ -134,7 +134,7 @@ function ChannelAnalysis() {
                                 height={200}
                             />
                         </div>
-                    </div>
+                    </div> */}
                     {/* Videos List Section */}
                     <div className="mt-10">
                         <h2 className="text-4xl font-bold mb-4">
