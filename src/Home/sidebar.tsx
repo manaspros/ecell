@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // Add this import
 import {
   IconArrowRight,
   IconBrandTabler,
@@ -24,6 +25,7 @@ const getLabelFromUrl = (url: string) => {
 };
 
 export function SidebarDemo() {
+  const navigate = useNavigate(); // Add navigate hook
   // State for saved links from localStorage
   const [savedLinks, setSavedLinks] = useState<string[]>([]);
 
@@ -71,7 +73,7 @@ export function SidebarDemo() {
                 key={`saved-${idx}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  window.location.href = targetHref;
+                  navigate(targetHref); // Use navigate instead of window.location
                 }}
               >
                 <SidebarLink

@@ -7,7 +7,6 @@ import { PieChart } from "@mui/x-charts/PieChart";
 import { IconStar, IconArrowRight } from "@tabler/icons-react";
 import youtubeLogo from "../assets/youtube_logo_icon.png"; // new import
 
-// Helper to calculate average rating from stats
 export const calculateAverage = (stats) => {
     if (!stats || Object.keys(stats).length === 0) return 0;
     let sum = 0, count = 0;
@@ -52,7 +51,6 @@ function ChannelAnalysis() {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-100">
                 <div className="w-full max-w-3xl p-8">
-                    {/* Header skeleton */}
                     <div className="animate-pulse flex items-center space-x-6 mb-12">
                         <div className="rounded-full bg-gray-300 h-20 w-20"></div>
                         <div className="flex-1 space-y-4">
@@ -61,13 +59,11 @@ function ChannelAnalysis() {
                         </div>
                     </div>
 
-                    {/* Stats skeleton */}
                     <div className="animate-pulse flex justify-between mb-12">
                         <div className="h-32 w-32 bg-gray-300 rounded-full"></div>
                         <div className="w-96 h-48 bg-gray-300 rounded-lg"></div>
                     </div>
 
-                    {/* Content blocks skeleton */}
                     <div className="space-y-8">
                         <div className="animate-pulse space-y-4">
                             <div className="h-8 bg-gray-300 rounded-lg w-1/4"></div>
@@ -110,7 +106,6 @@ function ChannelAnalysis() {
                             </p>
                         </div>
                     </div>
-                    {/* Rating and Pie Chart Section */}
                     {/* <div className="flex flex-col md:flex-row items-center justify-center gap-16 pt-16">
                         <div className="flex items-center gap-5">
                             <IconStar className="w-24 h-24 text-yellow-500" />
@@ -135,7 +130,6 @@ function ChannelAnalysis() {
                             />
                         </div>
                     </div> */}
-                    {/* Videos List Section */}
                     <div className="mt-10">
                         <h2 className="text-4xl font-bold mb-4">
                             Videos
