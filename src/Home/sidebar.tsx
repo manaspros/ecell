@@ -49,7 +49,7 @@ export function SidebarDemo() {
   const baseLinks = [
     {
       label: "Home",
-      href: "http://localhost:5173/",
+      href: "/",
       icon: <IconHome className="icon" />,
     },
   ];
