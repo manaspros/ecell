@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { SidebarDemo } from "./sidebar";
@@ -21,6 +21,7 @@ export const calculateAverage = (stats) => {
 };
 
 function ChannelAnalysis() {
+    const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const channelUrl = searchParams.get("url");
     const [channelData, setChannelData] = useState(null);
@@ -144,7 +145,8 @@ function ChannelAnalysis() {
                                             className="flex items-center justify-between border rounded-lg shadow p-4 cursor-pointer"
                                             onClick={(e) => {
                                                 e.preventDefault();
-                                                window.location.href = targetHref;
+                                                // window.location.href = targetHref;
+                                                navigate(targetHref);
                                             }}
                                         >
                                             <img
